@@ -1,0 +1,32 @@
+import socket
+
+port = 5555
+host = socket.gethostname()
+host = '127.0.0.1'
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((host, port))
+    
+    while True:
+        message = input("What do you want to send?")
+
+        s.sendall(message.encode('ascii'))
+        print("Message Sent!")
+        rcv = s.recv(1024)
+        print(f"Got: {rcv.decode('ascii')}")
+import socket
+
+port = 5555
+host = socket.gethostname()
+host = '127.0.0.1'
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.connect((host, port))
+    
+    while True:
+        message = input("What do you want to send?")
+
+        s.sendall(message.encode('ascii'))
+        print("Message Sent!")
+        rcv = s.recv(1024)
+        print(f"Got: {rcv.decode('ascii')}")
